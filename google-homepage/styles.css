@@ -1,0 +1,16 @@
+.menu {
+    text-align: right;
+    padding: 20px;
+}
+
+.main-search {
+    border: solid;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    padding-right: 10px;
+}
