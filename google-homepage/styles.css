@@ -1,24 +1,19 @@
-.menu {
-    text-align: right;
-    padding: 20px;
-}
-
-.main-search {
-    border: solid;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 a {
-    padding-right: 10px;
+    padding: 5px;
+}
+
+.redirects {
+    position: relative;
+    text-align: right;
+    margin: 0px 0px 150px 0px;
 }
 
 .search {
 	border: solid grey 1px;
 	border-radius: 3px;
-	border-color: transparent;
+    border-color: transparent;
+    box-sizing: border-box;
+
 	padding: 5px;
 }
 
@@ -34,8 +29,6 @@ a {
 
 body {
     text-align: center;
-    border: solid;
-    padding: 20px;
 }
 
 form {
@@ -47,3 +40,7 @@ img {
 	max-width: 350px;
 	display: inline-block;
 }
+
+input[type=text]:focus {
+    border: 3px solid #555;
+  }

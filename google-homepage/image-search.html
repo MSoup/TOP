@@ -7,18 +7,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="menu">
-        <header>
-            <a href="./index.html">Search</a>
-            
-            <a href="./advanced-search.html">Advanced search</a>
-        </header>
-    </div>
-    <div class="main-search">
-    <form action="https://www.google.com/imghp">
+    <header class="redirects">
+        <a href="./image-search.html">Images</a>
+        <a href="./advanced-search.html">Advanced search</a>
+    </header>
+  <div id="page-container">
+	<div id="logo">
+		<img src="./logo.png">
+	</div>
+    
+    <!-- To do a google image search, tbm=isch is the required parameter. See: https://www.google.ca/search?q=haikyuu&tbm=isch -->
+    <!-- Problem: I don't know how to sandwich my query between the form action and the extra parameter -->
+    <!-- Attempt 1: Hard coding the search parameter tbm=isch and hope the browser is smart enough to not add a second ? -->
+    <form action="https://www.google.com/search?tbm=isch">
         <input type="text" name="q">
         <input type="submit" value="Google Image Search">
     </form>
-    </div>
+
+
 </body>
 </html>
