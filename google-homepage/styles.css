@@ -14,3 +14,36 @@
 a {
     padding-right: 10px;
 }
+
+.search {
+	border: solid grey 1px;
+	border-radius: 3px;
+	border-color: transparent;
+	padding: 5px;
+}
+
+.search:hover {
+	box-shadow: 1px 1px 1px grey;
+
+}
+
+.dual-button-container {
+	padding: 10px;
+
+}
+
+body {
+    text-align: center;
+    border: solid;
+    padding: 20px;
+}
+
+form {
+    display: inline-block;
+    margin: 10px;
+}
+
+img {
+	max-width: 350px;
+	display: inline-block;
+}
