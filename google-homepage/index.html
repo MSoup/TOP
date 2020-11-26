@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<link rel="stylesheet" type="text/css" href="./styles.css">
     <title>Google Homepage Clone</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="redirects">
-        <a href="./image-search.html">Images</a>
-        <a href="./advanced-search.html">Advanced search</a>
+    	<nav>
+    		<ul>
+    			<li><a href="./image-search.html">Images</a></li>
+    			<li><a href="./advanced-search.html">Advanced search</a></li>
+    		</ul>
+    	</nav>
+        
+        
     </header>
   <div id="page-container">
 	<div id="logo">
@@ -20,13 +27,11 @@
 		<input type="text" name="q" id="search">
 		<br>
 		<div class="dual-button-container">
-		<input type="submit" class="search" value="Search">
-		<input type="submit" class="search" value="I'm feeling lucky">
+			<input type="submit" class="search" value="Search">
+			<input type="submit" class="search" value="I'm feeling lucky">
 		</div>
 		<p>Testing</p>
 	</form>
 </div>
 </body>
 </html>
-
-
