@@ -7,19 +7,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="menu">
-        <header>
-            <a href="./index.html">Search</a>
-            
-            <a href="./image-search.html">Image search</a>
-        </header>
-    </div>
+    <header class="redirects">
+        <nav>
+            <ul>
+                <li><a href="./index.html">Regular Search</a></li>
+                <li><a href="./image-search.html">Images</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="adv-search">
+        <h2>Find pages with...</h2>
+        <form class="adv-search-form" action="https://www.google.com/search">
+            <div class="adv-section">
+                <p>All of these words</p>
+                <input type="text" name="as_q" class="adv-box" value="">
+            </div>
 
-    <div class="main-search">
-    <form action="https://www.google.com/advanced_search">
-        <input type="text" name="q">
-        <input type="submit" value="Google Advanced Search">
-    </form>
+            <div class="adv-section">
+                <p>This exact word or phrase</p>
+                <input type="text" name="as_epq" value="">
+            </div>
+            <input type="submit" value="Google Advanced Search">
+        </form>
     </div>
 </body>
-</html>
+</html>             
