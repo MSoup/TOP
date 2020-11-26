@@ -1,18 +1,17 @@
-11/23 Start of Project
+Google Homepage Project
 
-At the end of this project, I will be able to know how to do the following:
+11/23 
+- Start of Project
 
-Two ways to move a div around on the page
-Stick a div onto the bottom or top of the page
+11/24
+- Copied Google homepage styling
 
-Identify the background color of an existing webpage
+11/25
+- Researched search queries on google
+- Learned about GET/POST requests
+- Made form searchable
 
-Grab the URL for an image from an existing webpage
-
-Center an element horizontally
-
-Identify three ways you can include your CSS styles in a page
-
-Understand how to use classes and ids to target CSS at specific elements on the page
-
-Build a very basic form (even if it doesn’t “go” anywhere)
+11/26
+- Extended functionality to image search and advanced search
+- Cleaned up formatting 
+- CSS is a huge mess, but maybe that's okay for now
