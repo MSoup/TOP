@@ -9,24 +9,14 @@
 </head>
 <body>
     <header class="redirects">
-        <a href="./image-search.html">Images</a>
+        <a href="./index.html">Home</a>
         <a href="./advanced-search.html">Advanced search</a>
     </header>
   <div id="page-container">
 	<div id="logo">
 		<img src="./logo.png">
 	</div>
-    
-    <!-- To do a google image search, tbm=isch is the required parameter. See: https://www.google.ca/search?q=haikyuu&tbm=isch -->
-    <!-- Problem: I don't know how to sandwich my query between the form action and the extra parameter -->
-    <!-- Attempt 1: Invisible second input box -->
-    <!-- <form action="https://www.google.com/search">
-        <input type="text" name="q">
-        <input type="text" name="tbm" value="isch">
-        <input type="submit" value="Google Image Search">
-    </form> -->
 
-    <!-- Attempt 2: Ask google to kindly redirect me appropriately by using the below url -->
     <form action="https://images.google.com/images">
         <input type="text" name="q">
         <input type="submit" value="Google Image Search">
