@@ -9,3 +9,4 @@ Nov 22 - Nov 28 - Project: Google Homepage
 - Add GET functionality using only HTML to create search, image search, advanced search
 - Learned about "Hoisting" in JS. 
 - Due to "hoisting," it is possible to use a function before it's defined. Hoisting only works with functions and variable declarations, but not initializations.
+

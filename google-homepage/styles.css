@@ -38,13 +38,6 @@ p {
 }
 
 #search {
-    background-color: #cecbcb00;
-    margin: 0;
-    padding: 0;
-    color: rgba(0,0,0,.87);
-    flex: 100%;
-    font-size: 16px;
-    border: solid #d4d0d0;
     border-radius: 4px;
 }
 

@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="./styles.css">
-    <title>Google Homepage Clone</title>
+	<title>Google Homepage Clone</title>
+	<script src="./index.js"></script>
 </head>
 <body>
     <header class="redirects">
@@ -19,11 +20,11 @@
     </header>
   <div id="page-container">
 	<div id="logo">
-		<img src="./logo.png">
+		<img class="logo" src="./logo.png">
 	</div>
 
 	<form action="https://www.google.com/search" method="GET">
-		<input type="text" name="q" id="search">
+		<input class="adv-box" type="text" name="q" id="search" size="35">
 		<br>
 		<div class="dual-button-container">
 			<input type="submit" class="search" value="Search">
@@ -31,5 +32,7 @@
 		</div>
 	</form>
 </div>
+
+<div class="oh"></div>
 </body>
 </html>
