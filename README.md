@@ -10,3 +10,7 @@ Nov 22 - Nov 28 - Project: Google Homepage
 - Learned about "Hoisting" in JS. 
 - Due to "hoisting," it is possible to use a function before it's defined. Hoisting only works with functions and variable declarations, but not initializations.
 
+Nov 29 - Project: Rock Paper Scissors
+- Reviewed JS
+- Finished first implementation of RPS logic 
+- Moving on asap
