@@ -1,8 +1,6 @@
 # TOP
 The Odin Project
 
-This readme will serve as a mini log about things I've learned.
-
 Nov 22 - Nov 28 - Project: Google Homepage
 - HTML, CSS review
 - Replicate Google using only HTML/CSS
@@ -15,12 +13,11 @@ Nov 29 - Project: Rock Paper Scissors
 - Finished first implementation of RPS logic 
 - require('./filename') is the equivalent of import in Python
 
-Finished Exercises: 
+Finished All Assigned Exercises: 
 helloWorld
 repeatString
 reverseString
 removeFromArray
-
 sumAll
 leapYears
 tempConversion
