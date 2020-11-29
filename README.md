@@ -13,4 +13,15 @@ Nov 22 - Nov 28 - Project: Google Homepage
 Nov 29 - Project: Rock Paper Scissors
 - Reviewed JS
 - Finished first implementation of RPS logic 
-- Moving on asap
+- require('./filename') is the equivalent of import in Python
+
+Finished Exercises: 
+helloWorld
+repeatString
+reverseString
+removeFromArray
+--
+sumAll
+leapYears
+tempConversion
+
