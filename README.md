@@ -16,13 +16,13 @@ Nov 29 - Project: Rock Paper Scissors
 - require('./filename') is the equivalent of import in Python
 
 Finished All Assigned Exercises: 
-helloWorld
-repeatString
-reverseString
-removeFromArray
-sumAll
-leapYears
-tempConversion
+- helloWorld
+- repeatString
+- reverseString
+- removeFromArray
+- sumAll
+- leapYears
+- tempConversion
 
 Nov 30: First new topic-manipulating the DOM
 --
@@ -30,24 +30,13 @@ Nov 30: First new topic-manipulating the DOM
 Notes:
 Query Selectors
 ---
-
+Learned about:
 element.querySelector(selector) returns reference to the FIRST match of selector
 
 element.querySelector(selectors) returns a "nodelist" containing references to all the matches of the selectors.
 
-Note **when using querySelectorAll, the return value is not an array. It is a NODELIST.** The difference? Several array methods are missing from nodelists. You can use the spread operator to turn it into an actual array (...).
-
-Note on spread syntax:
-
-Usage:
-```
-let arr1 = [0, 1, 2];
-let arr2 = [3, 4, 5];
-
-arr1 = [...arr1, ...arr2]; 
-```
-
-Note: Spread syntax (other than in the case of spread properties) can be applied only to iterable objects.
+The difference between nodelist and array? 
+Several array methods are missing from nodelists. You can use the spread operator to turn it into an actual array (...).
 
 Objects themselves are not iterable, but they become iterable when used in an Array, or with iterating functions such as map(), reduce(), and assign()
 
@@ -56,13 +45,12 @@ let obj = {'key1': 'value1'};
 let array = [...obj]; // TypeError: obj is not iterable
 ```
 
-document.createElement(tagName[, options]) creates a new element of tag type tagName.
-
-Creating a div in memory. DOES NOT PUT INTO DOM YET
+document.createElement(tagName[, options]) creates a new element of tag type tagName. (In memory, not on the DOM yet)
 
 ```
 const div = document.createElement('div');
 ```
+
 This is so that you can manipulate the element (by adding styles, classes, ids, text etc.) before placing it on the page.
 
 Appending Elements:
