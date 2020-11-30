@@ -1,0 +1,10 @@
+.rps-options {
+    padding: 4px;
+    /* border-radius: 2px; */
+    overflow:hidden;
+}
+
+button.rps-options:on-hover {
+    background-color: blue;
+    font-size: 14px;
+}
