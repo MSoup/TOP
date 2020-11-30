@@ -2,6 +2,7 @@
 The Odin Project
 
 Nov 22 - Nov 28 - Project: Google Homepage
+--
 - HTML, CSS review
 - Replicate Google using only HTML/CSS
 - Add GET functionality using only HTML to create search, image search, advanced search
@@ -9,6 +10,7 @@ Nov 22 - Nov 28 - Project: Google Homepage
 - Due to "hoisting," it is possible to use a function before it's defined. Hoisting only works with functions and variable declarations, but not initializations.
 
 Nov 29 - Project: Rock Paper Scissors
+--
 - Reviewed JS
 - Finished first implementation of RPS logic 
 - require('./filename') is the equivalent of import in Python
@@ -23,6 +25,7 @@ leapYears
 tempConversion
 
 Nov 30: First new topic-manipulating the DOM
+--
 
 Notes:
 Query Selectors
