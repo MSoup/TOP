@@ -145,3 +145,11 @@ IMPORTANT
 --
 Your JavaScript, for the most part, is run whenever the JS file is run, or when the script tag is encountered in the HTML. If you are including your JavaScript at the top of your file, many of these DOM manipulation methods will not work because the JS code is being run before the nodes are created in the DOM. The simplest way to fix this is to include your JavaScript at the bottom of your HTML file so that it gets run after the DOM nodes are parsed and created.
 
+Dec 2:
+- changed buttons to grid squares (perhaps a regrettable design choice?)
+- attempting to get rps layout on css grid 
+- learned a lot about scope and closures. Still not comfortable but that's okay. 
+- momentum slowed down as I grind through positioning things on the DOM
+- how do I disable buttons after conditions have been met? 
+- lastly, I need to decide whether I should just keep moving forward for projects or if I should absolutely go until I've finished rps. Maybe I'll give rps another few days.
+- I'm sacrificing gym time for this, I better make it quality study time
