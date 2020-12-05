@@ -5,12 +5,29 @@ let computerScore = 0;
 // helpers
 const CHOICES = ["rock", "paper", "scissors"];
 
-// helpers (makes comparison logic cleaner)
+const capitalize = function(word) {
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+
 const WIN_PAIRINGS = {
     "rock": "scissors",
     "scissors": "paper",
     "paper": "rock"
 }
+
+// query selectors
+const displayResult = document.querySelector('.Display-Text');
+const buttons = document.querySelectorAll('.rps-button');
+const totals = document.querySelector('#totals');
+const score = document.querySelector('#scoreboard');
+const gameTitle = document.querySelector(".gameTitle");
+
+// elements
+const subTitle = document.createElement("h2");
+const restartButton = document.createElement("button");
+let conclusion = document.createElement('h2');
 
 // computerPlay: generates rock, paper, or scissors
 const computerPlay = function() {
@@ -18,22 +35,11 @@ const computerPlay = function() {
     return CHOICES[choice]    
 }
 
-const displayResult = document.querySelector('.Display-Text');
-
-displayResult.textContent = "Test";
-
-const capitalize = function(word) {
-    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-}
-
 // playRound: takes rock/paper/scissors for player and computer and returns result in string
 const playRound = function(playerSelection) {
     let computerSelection = computerPlay();
     let choice = playerSelection.toLowerCase();
 
-    //debugging
-    console.log("You chose " + playerSelection);
-    console.log(computerSelection);
     // Player wins
     if (WIN_PAIRINGS[choice] == computerSelection) {
         playerScore += 1;
@@ -55,43 +61,35 @@ const playRound = function(playerSelection) {
     }
 }
 
-// Select all buttons
-const buttons = document.querySelectorAll('.rps-button');
-
 // append appropriate values to the buttons
 for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i];
     button.value = CHOICES[i];
 }
 
-// function to log the output of a single round
+// event listener function to log the output of a single round
 const buttonFunction = function(option) {
     return logEvent(playRound(option));
 }
 
-// add event listeners to each button
+// add event listener to each button
 buttons.forEach((button) => {
     button.addEventListener('click', () => 
     buttonFunction(button.value));
     });
 
-const totals = document.querySelector('#totals');
-const restartButton = document.createElement("button");
 restartButton.textContent = "Restart Game";
 restartButton.classList = "rps-button";
 restartButton.style.marginBottom = "10px";
 
+// clears scores, removes the restart button, clears the display
 restartButton.addEventListener('click', () => {
-playerScore = 0;
-computerScore = 0;
-score.removeChild(restartButton);
-totals.textContent = "Score:";
-console.log(displayResult.childNodes);
-displayResult.textContent = "";
-}
-);
-
-let conclusion = document.createElement('h2');
+    playerScore = 0;
+    computerScore = 0;
+    score.removeChild(restartButton);
+    totals.textContent = "Score:";
+    displayResult.textContent = "";
+    });
 
 // function that logs outcome of button being pressed
 const logEvent = function(stringLog) {
@@ -108,8 +106,21 @@ const logEvent = function(stringLog) {
     }
 }
 
-const score = document.querySelector('#scoreboard');
-
+// shows the restart button
 const genRestart = function() {
     score.appendChild(restartButton);
 }
+
+
+const greeting = "Welcome to RPS!";
+
+const genTitle = async() => {
+    for (let i = 0; i < greeting.length; i++) {
+        await sleep(70);
+        gameTitle.textContent += greeting[i];
+    }
+    subTitle.textContent = "Choose your weapon:";
+    gameTitle.parentNode.insertBefore(subTitle, gameTitle.nextSibling);
+}
+
+genTitle();
