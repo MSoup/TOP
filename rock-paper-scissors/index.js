@@ -12,79 +12,83 @@ const WIN_PAIRINGS = {
     "paper": "rock"
 }
 
-
+// computerPlay: generates rock, paper, or scissors
 const computerPlay = function() {
     let choice = Math.floor(Math.random() * 3);
     return CHOICES[choice]    
 }
 
+const displayResult = document.querySelector('.Display-Text');
 
-
-const playRound = function(playerSelection, computerSelection) {
-    let choice = playerSelection.toLowerCase();
-    // Player wins
-    if (WIN_PAIRINGS[choice] == computerSelection) {
-        playerScore += 1;
-        return `You Win! ${capitalize(choice)} beats ${capitalize(computerSelection)}`
-    }
-    // Player loses
-    else if (WIN_PAIRINGS[computerSelection] == choice) {
-        computerScore += 1;
-        return `You Lose! ${capitalize(computerSelection)} beats ${capitalize(choice)}`
-
-    }
-    // Tie
-    else if (choice == computerSelection) {
-        return "Tie!"
-    }
-    else {
-        return "Error happened somewhere in my logic"
-    }
-}
+displayResult.textContent = "Test";
 
 const capitalize = function(word) {
     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
-const container = document.querySelector('#container');
+// playRound: takes rock/paper/scissors for player and computer and returns result in string
+const playRound = function(playerSelection) {
+    let computerSelection = computerPlay();
+    let choice = playerSelection.toLowerCase();
 
-// Make 3 buttons - Rock Paper Scissors
-for (let i = 0; i < 3; i++) {
-    var option = document.createElement('button');
-    option.innerHTML = capitalize(CHOICES[i]);
-    option.classList.add('rps-options');
-    option.value = CHOICES[i];
-    container.appendChild(option);
+    //debugging
+    console.log("You chose " + playerSelection);
+    console.log(computerSelection);
+    // Player wins
+    if (WIN_PAIRINGS[choice] == computerSelection) {
+        playerScore += 1;
+        displayResult.textContent = `You Win! :) ${capitalize(choice)} beats ${capitalize(computerSelection)}`
+        console.log(displayResult.textContent);
+
+    }
+    // Player loses
+    else if (WIN_PAIRINGS[computerSelection] == choice) {
+        computerScore += 1;
+        displayResult.textContent = `You Lose! AI chose ${capitalize(computerSelection)}. ${capitalize(computerSelection)} beats ${capitalize(choice)}`
+        console.log(displayResult.textContent);
+    }
+    // Tie
+    else {
+        displayResult.textContent = "Tie!";
+        console.log(displayResult.textContent);
+
+    }
 }
 
-// Select all buttons and add event listeners to them
-const buttons = document.querySelectorAll('button');
+// Select all buttons and add event listeners to them.
+const buttons = document.querySelectorAll('.rps-button');
+console.log(buttons);
 
+// append appropriate values to the buttons
+for (let i = 0; i < buttons.length; i++) {
+    let button = buttons[i];
+    button.value = CHOICES[i];
+}
+
+// function to log the output of a single round
+const buttonFunction = function(option) {
+    return logEvent(playRound(option));
+}
+
+// add event listeners to each button
 buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        return logEvent(playRound(button.value, computerPlay()));
+    button.addEventListener('click', () => 
+    buttonFunction(button.value));
     });
-});
 
-const scoreboard = document.querySelector('#scoreboard');
 const totals = document.querySelector('#totals');
 
 // function that logs outcome of button being pressed
 const logEvent = function(stringLog) {
-    var score = document.createElement('p');
-    // p generated with outcome of playRound (stringLog)
-    score.textContent = stringLog;
-    scoreboard.appendChild(score);
-    // display totals in heading 
     totals.textContent = "Score: You: " + playerScore + " Computer: " + computerScore;
     if (playerScore == 5) {
-        var conclusion = document.createElement('h2');
+        let conclusion = document.createElement('h2');
         conclusion.textContent = "You win. Game over."
-        scoreboard.appendChild(conclusion);
+        displayResult.appendChild(conclusion);
     }
     else if (computerScore == 5) {
-        var conclusion = document.createElement('h2');
+        let conclusion = document.createElement('h2');
         conclusion.textContent = "You lose. Game over."
-        scoreboard.appendChild(conclusion);        
+        displayResult.appendChild(conclusion);
     }
 }
