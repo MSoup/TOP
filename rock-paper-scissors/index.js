@@ -55,9 +55,8 @@ const playRound = function(playerSelection) {
     }
 }
 
-// Select all buttons and add event listeners to them.
+// Select all buttons
 const buttons = document.querySelectorAll('.rps-button');
-console.log(buttons);
 
 // append appropriate values to the buttons
 for (let i = 0; i < buttons.length; i++) {
@@ -77,18 +76,40 @@ buttons.forEach((button) => {
     });
 
 const totals = document.querySelector('#totals');
+const restartButton = document.createElement("button");
+restartButton.textContent = "Restart Game";
+restartButton.classList = "rps-button";
+restartButton.style.marginBottom = "10px";
+
+restartButton.addEventListener('click', () => {
+playerScore = 0;
+computerScore = 0;
+score.removeChild(restartButton);
+totals.textContent = "Score:";
+console.log(displayResult.childNodes);
+displayResult.textContent = "";
+}
+);
+
+let conclusion = document.createElement('h2');
 
 // function that logs outcome of button being pressed
 const logEvent = function(stringLog) {
     totals.textContent = "Score: You: " + playerScore + " Computer: " + computerScore;
     if (playerScore == 5) {
-        let conclusion = document.createElement('h2');
         conclusion.textContent = "You win. Game over."
         displayResult.appendChild(conclusion);
+        genRestart();
     }
     else if (computerScore == 5) {
-        let conclusion = document.createElement('h2');
         conclusion.textContent = "You lose. Game over."
         displayResult.appendChild(conclusion);
+        genRestart();
     }
+}
+
+const score = document.querySelector('#scoreboard');
+
+const genRestart = function() {
+    score.appendChild(restartButton);
 }
