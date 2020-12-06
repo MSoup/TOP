@@ -50,9 +50,10 @@ Dec 5:
 Let's move on.
 
 Dec 6 - Dec 12 - Project: Etch A Sketch
+--
 - began etch a sketch project
 - learned a little bit about flexbox to make a 16x16 grid
 - learned how to use mouseover combined with tag:hover to "color" in squares
 - question: how do I compartmentalize my code to allow for having many buttons? 
 - How do I make it clean and "contained"? 
-- How do I 
+- How do I have different n x n size grids that are contained in the same space?
