@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+}
+
+.pixel {
+  border: 1px solid;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
+
+.pixel:hover {
+  background-color: grey;
+}
