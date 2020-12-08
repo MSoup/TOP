@@ -58,3 +58,4 @@ Dec 6 - Dec 12 - Project: Etch A Sketch
 - How do I make it clean and "contained"? 
 - How do I have different n x n size grids that are contained in the same space?
 - learned about event delegation. Gonna try to refactor my code so that I can apply the event listener onto the container instead of each pixel
+- learned about try-catch blocks
