@@ -1,9 +1,19 @@
 const container = document.querySelector(".container");
-let pixels;
+const colorIndicator = document.querySelector(".colorIndicator");
 
+const defaultSelect = document.createElement("option");
 const gridContainer = document.createElement("div");
 const clearButton = document.createElement("button");
 const changeColorDropdown = document.createElement("select");
+
+changeColorDropdown.add(defaultSelect);
+container.appendChild(changeColorDropdown);
+
+// default settings
+let numSquares = 16;
+let option = "grey";
+
+// available colors in drop down
 const selectList = [
   "aqua",
   "black",
@@ -22,12 +32,9 @@ const selectList = [
   "yellow",
 ];
 
-// set up changeColorDropdown - default value "" and display text "choose color"
-let defaultSelect = document.createElement("option");
+// default drop down option
 defaultSelect.value = "";
 defaultSelect.textContent = "Choose Color";
-changeColorDropdown.add(defaultSelect);
-container.appendChild(changeColorDropdown);
 
 // append colors
 function appendColors() {
@@ -45,14 +52,11 @@ function appendColors() {
 // execute appendColors function to append colors to dropdown
 appendColors();
 
+// change the colored square accordingly for visuals, default grey
 container.appendChild(clearButton);
 container.appendChild(gridContainer);
 
 gridContainer.setAttribute("id", "gridContainer");
-
-// default is 16?
-let numSquares = 16;
-let option = "grey";
 
 // set up clearButton
 clearButton.textContent = "Reset Canvas";
@@ -66,6 +70,9 @@ clearButton.addEventListener("click", () => {
 
 changeColorDropdown.addEventListener("change", (event) => {
   option = event.target.value;
+  // why does changing option here allow colors to be updated?
+  // but colorIndicator.style.backgroundColor = option; doesnt work?
+  colorIndicator.style.backgroundColor = option;
 });
 
 const removeBoard = function () {
@@ -87,7 +94,7 @@ const generateBoard = function (numSquares) {
     gridContainer.appendChild(cell).className = "pixel";
   }
 
-  pixels = document.querySelectorAll(".pixel");
+  let pixels = document.querySelectorAll(".pixel");
 
   pixels.forEach((square) => {
     square.addEventListener("mouseover", () => {
