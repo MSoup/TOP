@@ -1,10 +1,60 @@
 const container = document.querySelector(".container");
-const clearButton = document.createElement("button");
 let pixels;
 
+const gridContainer = document.createElement("div");
+const clearButton = document.createElement("button");
+const changeColorDropdown = document.createElement("select");
+const selectList = [
+  "aqua",
+  "black",
+  "blue",
+  "fuchsia",
+  "gray",
+  "green",
+  "lime",
+  "maroon",
+  "navy",
+  "olive",
+  "purple",
+  "red",
+  "silver",
+  "teal",
+  "yellow",
+];
+
+// set up changeColorDropdown - default value "" and display text "choose color"
+let defaultSelect = document.createElement("option");
+defaultSelect.value = "";
+defaultSelect.textContent = "Choose Color";
+changeColorDropdown.add(defaultSelect);
+container.appendChild(changeColorDropdown);
+
+// append colors
+function appendColors() {
+  let color, option;
+  for (let i = 0; i < selectList.length; i++) {
+    color = selectList[i];
+    option = document.createElement("option");
+    option.value = color;
+    option.textContent = color;
+    option.color = color;
+    changeColorDropdown.add(option);
+  }
+}
+
+// execute appendColors function to append colors to dropdown
+appendColors();
+
+container.appendChild(clearButton);
+container.appendChild(gridContainer);
+
+gridContainer.setAttribute("id", "gridContainer");
+
+// default is 16?
 let numSquares = 16;
 let option = "grey";
 
+// set up clearButton
 clearButton.textContent = "Reset Canvas";
 clearButton.addEventListener("click", () => {
   do {
@@ -14,42 +64,37 @@ clearButton.addEventListener("click", () => {
   generateBoard(numSquares);
 });
 
-container.appendChild(clearButton);
-
-const changeColor = document.createElement("button");
-
-// adding a button to experiment with changing colors
-changeColor.textContent = "Change to Blue";
-changeColor.addEventListener("click", () => (option = "blue"));
-
-container.appendChild(changeColor);
+changeColorDropdown.addEventListener("change", (event) => {
+  option = event.target.value;
+});
 
 const removeBoard = function () {
-  while (container.lastChild.nodeName === "DIV") {
-    container.removeChild(container.lastChild);
+  try {
+    while (gridContainer.lastChild.nodeName === "DIV") {
+      gridContainer.removeChild(gridContainer.lastChild);
+    }
+  } catch {
+    return;
   }
 };
 
 const generateBoard = function (numSquares) {
-  for (let i = 0; i < numSquares; i++) {
-    let row = document.createElement("div");
-    row.classList.add("row");
-    for (let j = 0; j < numSquares; j++) {
-      let pixel = document.createElement("div");
-      pixel.classList.add(i + "-" + j);
-      pixel.classList.add("pixel");
-      row.appendChild(pixel);
-    }
-    container.appendChild(row);
+  gridContainer.style.setProperty("--grid-rows", numSquares);
+  gridContainer.style.setProperty("--grid-cols", numSquares);
+  for (c = 0; c < numSquares * numSquares; c++) {
+    let cell = document.createElement("div");
+    // cell.innerText = c + 1;
+    gridContainer.appendChild(cell).className = "pixel";
   }
-  pixels = document.querySelectorAll(".pixel");
 
-  // add event listeners to each pixel after generation
+  pixels = document.querySelectorAll(".pixel");
 
   pixels.forEach((square) => {
     square.addEventListener("mouseover", () => {
       square.style.backgroundColor = option;
-      console.log("making square grey " + square.className);
+      console.log(`making square ${option}`);
     });
   });
 };
+
+generateBoard(16);
