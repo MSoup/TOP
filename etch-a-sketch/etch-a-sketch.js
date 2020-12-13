@@ -1,13 +1,14 @@
 const container = document.querySelector(".container");
+const buttonContainer = document.querySelector(".buttonContainer");
+
 const colorIndicator = document.querySelector(".colorIndicator");
 
 const defaultSelect = document.createElement("option");
 const gridContainer = document.createElement("div");
 const clearButton = document.createElement("button");
 const changeColorDropdown = document.createElement("select");
-
 changeColorDropdown.add(defaultSelect);
-container.appendChild(changeColorDropdown);
+buttonContainer.appendChild(changeColorDropdown);
 
 // default settings
 let numSquares = 16;
@@ -53,13 +54,16 @@ function appendColors() {
 appendColors();
 
 // change the colored square accordingly for visuals, default grey
-container.appendChild(clearButton);
+buttonContainer.appendChild(clearButton);
 container.appendChild(gridContainer);
 
 gridContainer.setAttribute("id", "gridContainer");
 
+changeColorDropdown.className = "button";
+
 // set up clearButton
 clearButton.textContent = "Reset Canvas";
+clearButton.className = "button";
 clearButton.addEventListener("click", () => {
   do {
     numSquares = window.prompt("Select new size (10-100, default is 16)", 16);
