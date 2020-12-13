@@ -1,14 +1,17 @@
 const container = document.querySelector(".container");
 const buttonContainer = document.querySelector(".buttonContainer");
-
 const colorIndicator = document.querySelector(".colorIndicator");
 
 const defaultSelect = document.createElement("option");
 const gridContainer = document.createElement("div");
 const clearButton = document.createElement("button");
 const changeColorDropdown = document.createElement("select");
-changeColorDropdown.add(defaultSelect);
+
 buttonContainer.appendChild(changeColorDropdown);
+buttonContainer.appendChild(clearButton);
+container.appendChild(gridContainer);
+
+changeColorDropdown.add(defaultSelect);
 
 // default settings
 let numSquares = 16;
@@ -53,10 +56,6 @@ function appendColors() {
 // execute appendColors function to append colors to dropdown
 appendColors();
 
-// change the colored square accordingly for visuals, default grey
-buttonContainer.appendChild(clearButton);
-container.appendChild(gridContainer);
-
 gridContainer.setAttribute("id", "gridContainer");
 
 changeColorDropdown.className = "button";
@@ -74,8 +73,6 @@ clearButton.addEventListener("click", () => {
 
 changeColorDropdown.addEventListener("change", (event) => {
   option = event.target.value;
-  // why does changing option here allow colors to be updated?
-  // but colorIndicator.style.backgroundColor = option; doesnt work?
   colorIndicator.style.backgroundColor = option;
 });
 
