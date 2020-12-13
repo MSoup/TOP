@@ -32,6 +32,8 @@ h1 {
 }
 h3 {
   margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
 .colorIndicator {
@@ -48,16 +50,14 @@ h3 {
   min-height: 4px;
 }
 
-.pixel:hover {
-  background-color: grey;
-}
-
 #gridContainer {
   width: 400px;
   height: 400px;
   display: grid;
   grid-template-rows: repeat(var(--grid-rows), 1fr);
   grid-template-columns: repeat(var(--grid-cols), 1fr);
-  border: solid 5px;
+  border: groove 2px;
   padding: 1px;
+  box-shadow: 1px 2px 11px 1px #969696;
+  margin-top: 5px;
 }
