@@ -63,3 +63,11 @@ Dec 6 - Dec 12 - Project: Etch A Sketch
 - container must be fixed!
 
 TODO:  try to refactor my code so that I can apply the event listener onto the container instead of each pixel
+
+Dec 13 - Dec 19
+--
+- Finished etch a sketch
+- reviewed objects
+- learned about modularizing -> contributed to open source project by modularizing firebase auth and quill editor instance
+- ES6 style -> (module.js) export const thing = {}
+- (main.js) import { thing } from "./module.js";
