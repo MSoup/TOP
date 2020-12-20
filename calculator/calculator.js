@@ -66,20 +66,39 @@ const capture = function (event) {
 
   // if number, push onto stack as a string
   if (Number.isInteger(parseInt(input))) {
+    console.log("pushing to stack " + input);
     stack.push(input);
     // clear
   } else if (input == "clear") {
     stack = [];
+    console.log("clearing stack " + input);
+
     mainScreen.textContent = "Cleared";
     subScreen.textContent = "";
     return;
-    // if equals sign
+    // if operator was pressed after num operator num exists in stack
+    // merge numbers on rs, evaluate, display result, append new op to stack[1]
+    // if stack[1] is an operator and stack[2] is an int AND operator was pressed
   } else if (
-    // TODO - change this part.
-    // currently, pressing 5 * 5 * 5 will evaluate 5*5 but not do the *5 appropriately
-    input == "=" ||
-    (OPERATORS.indexOf(stack[1]) !== -1 && Number.isInteger(parseInt(stack[2])))
+    input !== "=" &&
+    OPERATORS.indexOf(input) !== -1 &&
+    OPERATORS.indexOf(stack[1]) !== -1 &&
+    Number.isInteger(parseInt(stack[2]))
   ) {
+    // merge rs first
+    let rs = stack.slice(2).join("");
+    result = operate(parseInt(stack[0]), stack[1], parseInt(rs));
+    stack = [result];
+    stack.push(input);
+
+    mainScreen.textContent = result;
+    subScreen.textContent = result + " " + input;
+    return;
+  }
+
+  // if equals sign
+  else if (input === "=") {
+    console.log(stack);
     // if LS and operator exists, send LS, OP, RS to OPERATE
     if (
       Number.isInteger(parseInt(stack[0])) &&
@@ -89,7 +108,11 @@ const capture = function (event) {
       stack = stack.slice(0, 2);
       stack.push(rs);
       result = operate(parseInt(stack[0]), stack[1], parseInt(stack[2]));
+      console.log(
+        "Printing result to screen, clearing subscreen, enter pressed"
+      );
       mainScreen.textContent = result;
+      subScreen.textContent = "";
       stack = [result];
       return;
     }
