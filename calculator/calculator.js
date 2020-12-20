@@ -4,6 +4,11 @@ const mainScreen = document.querySelector(".mainScreenText");
 const subScreen = document.querySelector(".subText");
 const OPERATORS = ["+", "-", "/", "*", "="];
 
+// TODO
+// 1) Finish UI
+// 2) Finish logic
+// 3) Connect keyboard input to calc
+
 // generate buttons 1-9, period, clear
 const generateNumberPad = () => {
   let button;
@@ -33,51 +38,83 @@ const generateNumberPad = () => {
 
 generateNumberPad();
 
-// add event listeners to buttons
-numberPad.onclick = function (event) {
-  let target = event.target; // where was the click?
-  if (target.className != "btn") {
-    return;
-  }
-  capture(target.value);
-};
-
-// captures info from buttons being clicked, main logic
+// MAIN LOGIC
 let stack = [];
-const capture = function (input) {
-  // do nothing if first input isn't an int
-  if (!stack && !Number.isInteger(parseInt(input))) {
+const capture = function (event) {
+  let input = event.target;
+  // make sure it's a button being pressed
+  if (input.className != "btn") {
     return;
   }
-  // do nothing if more than one operator was pressed sequentially
-  if (!Number.isInteger(stack[stack.length - 1]) && input in OPERATORS) {
-    return; // bad logic, currently clear cannot be pressed after an operator
+
+  input = input.value;
+
+  // first input isn't an int
+  if (stack.length == 0 && !Number.isInteger(parseInt(input))) {
+    mainScreen.textContent = "First entry must be a number";
+    return;
+  }
+  // more than one operator was pressed
+  let lastIndex = stack.length - 1;
+  if (
+    OPERATORS.indexOf(input) !== -1 &&
+    OPERATORS.indexOf(stack[lastIndex]) !== -1
+  ) {
+    mainScreen.textContent = "Cannot press two operators in a row";
+    return;
   }
 
-  // if number, push onto stack as a string for ez joining
+  // if number, push onto stack as a string
   if (Number.isInteger(parseInt(input))) {
-    display(input);
     stack.push(input);
+    // clear
   } else if (input == "clear") {
     stack = [];
+    mainScreen.textContent = "Cleared";
+    subScreen.textContent = "";
+    return;
+    // if equals sign
+  } else if (
+    // TODO - change this part.
+    // currently, pressing 5 * 5 * 5 will evaluate 5*5 but not do the *5 appropriately
+    input == "=" ||
+    (OPERATORS.indexOf(stack[1]) !== -1 && Number.isInteger(parseInt(stack[2])))
+  ) {
+    // if LS and operator exists, send LS, OP, RS to OPERATE
+    if (
+      Number.isInteger(parseInt(stack[0])) &&
+      OPERATORS.indexOf(stack[1]) !== -1
+    ) {
+      let rs = stack.slice(2).join("");
+      stack = stack.slice(0, 2);
+      stack.push(rs);
+      result = operate(parseInt(stack[0]), stack[1], parseInt(stack[2]));
+      mainScreen.textContent = result;
+      stack = [result];
+      return;
+    }
   }
 
   // remaining possibility, operator
   else {
     let ls = stack.join("");
     let op = input;
+    stack = [ls, op];
   }
+  display(input);
 };
+
+// add event listeners to buttons
+numberPad.addEventListener("click", capture);
 
 const display = function (input) {
   if (input == "clear") {
     subScreen.textContent = "Cleared";
-  } else {
-    subScreen.textContent += input + " ";
   }
+  subScreen.textContent = stack.join(" ");
 };
 
-const operate = function (a, b, op) {
+const operate = function (a, op, b) {
   switch (op) {
     case "+":
       return a + b;
