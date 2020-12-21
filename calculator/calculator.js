@@ -21,13 +21,14 @@ const generateNumberPad = () => {
     numberPad.appendChild(button);
   }
   // add operators
-  for (let i = 0; i < OPERATORS.length; i++) {
+  OPERATORS.forEach((op) => {
     button = document.createElement("button");
     button.className = "btn";
-    button.textContent = OPERATORS[i];
-    button.value = OPERATORS[i];
+    button.textContent = op;
+    button.value = op;
     numberPad.appendChild(button);
-  }
+  });
+
   // add clear separately (below logic loops through operators so this is needed)
   button = document.createElement("button");
   button.className = "btn";
@@ -69,7 +70,7 @@ const capture = function (event) {
     console.log("pushing to stack " + input);
     stack.push(input);
     // clear
-  } else if (input == "clear") {
+  } else if (input === "clear") {
     stack = [];
     console.log("clearing stack " + input);
 
