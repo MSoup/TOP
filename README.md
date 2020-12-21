@@ -70,4 +70,10 @@ Dec 13 - Dec 19
 - reviewed objects
 - learned about modularizing -> contributed to open source project by modularizing firebase auth and quill editor instance
 - ES6 style -> (module.js) export const thing = {}
-- (main.js) import { thing } from "./module.js";
+- (main.js) import { thing } from "./module.js"; (html script portion needs type="module" - I think?)
+
+Dec 21 - Dec 26
+--
+- Started calculator
+- Finished logic for calc without decimals
+- starting on css
