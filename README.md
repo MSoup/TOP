@@ -77,3 +77,11 @@ Dec 21 - Dec 26
 - Started calculator
 - Finished logic for calc without decimals
 - starting on css
+
+Getting Sidetracked
+--
+Dec 23
+- started learning about mongoDB, as I'd like to start integrating databases into projects
+- A "document" is a collection of field value pairs. A "collection" contains one or more documents.
+- What is MongoDB atlas?
+--> MongoDB is used at the core of Atlas for data storage and retrieval
