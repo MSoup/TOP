@@ -40,7 +40,9 @@ button.dropdown:hover {
 }
 
 .navContainer {
-  position: sticky;
+  position: absolute;
+  right: 0;
+  width: 350px;
 }
 
 .navContainer a {
@@ -48,9 +50,9 @@ button.dropdown:hover {
   border: solid;
   float: none;
   color: black;
+  display: block;
   padding: 12px 20px;
   text-decoration: none;
-  display: block;
   text-align: left;
   transition: transform 300ms ease-in-out;
 }
