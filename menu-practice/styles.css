@@ -12,8 +12,10 @@ header {
 
 nav {
   position: absolute;
-  right: 0;
+  /* Important to have dropdown flush against right side */
+  right: 0px;
   height: 100%;
+  white-space: nowrap;
 }
 
 button.dropdown {
@@ -22,8 +24,8 @@ button.dropdown {
   width: 7vw;
   background: none;
   border: none;
-  padding: 15px;
-  margin-right: 5px;
+  padding: 0;
+  margin-right: 15px;
   font: inherit;
   cursor: pointer;
   outline: inherit;
@@ -59,4 +61,34 @@ button.dropdown:hover {
 
 .hidden {
   display: none;
+}
+
+@media all and (min-width: 1024px) and (max-width: 1280px) {
+  header {
+    height: 65px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  header {
+    height: 60px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px) {
+  button.dropdown:hover {
+    transform: none;
+}
+header {
+  height: 55px;
+}
+
+@media all and (max-width: 480px) {
+  header {
+    height: 55px;
+  }
+
+  button.dropdown:hover {
+    transform: none;
+  }
 }
